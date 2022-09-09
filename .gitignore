@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+.env
+.idea
+log/
+temp/
+.zip
+.rar
+*.zip
+*.rar
+*.log
+*.pem
+*.ppk
