@@ -14,22 +14,22 @@ const migrate = async () => {
                 "privileges": {}
             },{
                 "description" : "Role Access",
-                "name" : "Professional",
-                "code" : "PROFESSIONAL",
+                "name" : "Under Writer",
+                "code" : "UNDER_WRITER",
                 "active" : true,
                 "isAdmin" : true,
                 "privileges": {}
             },{
                 "description" : "Role Access",
-                "name" : "User",
-                "code" : "USER",
+                "name" : "Supervisior",
+                "code" : "SUPERVISIOR",
                 "active" : true,
                 "isAdmin" : false,
                 "privileges": {}
             },{
                 "description" : "Role Access",
-                "name" : "Content Manager",
-                "code" : "CONTENT_MANAGER",
+                "name" : "Reporter",
+                "code" : "REPORTER",
                 "active" : true,
                 "isAdmin" : false,
                 "privileges": {}
@@ -40,7 +40,7 @@ const migrate = async () => {
 
         let user = await UserModel.find();
         if (!user || !user.length) {
-            let role = ((await RoleModel.findOne({code: 'PROFESSIONAL'})) || {})._id || '';
+            let role = ((await RoleModel.findOne({code: 'SUPER_ADMIN'})) || {})._id || '';
             user = {
                 "email" : "admin@gmail.com",
                 "phoneNumber": 9080706050,
@@ -48,6 +48,8 @@ const migrate = async () => {
                 "password": "admin@user",
                 "firstName": "Admin",
                 "lastName": "User",
+                "address":'delhi',
+                "designation":"IT Manager",
                 "role": role,
                 "active": true,
                 "firstLogin": true,
